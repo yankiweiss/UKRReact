@@ -28,15 +28,25 @@ button{
   margin-left: 150px;
 }
 
+a{
+   text-decoration: none;
+}
+
 .prop-container{
   /*border: #267338 solid 2px;*/
   width: 350px;
   height: 400px;
   border-radius: 8px;
   padding: 8px; 
+
+}
+p{
+  color: #174622;
+  font-weight: 550;
+  font-size: 1.2rem;
 }
 .prop-container:hover{
-  background-color: rgba(214, 214, 214, 0.425);
+  background-color: #95dfa669;
  
 }
 

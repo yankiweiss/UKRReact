@@ -6,13 +6,24 @@ import {Link} from 'react-router-dom';
 
 function Homepage() {
   const [listingData, setListingData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(false)
     fetch("https://upstatekosherrentals.com/listing")
       .then((response) => response.json())
-      .then((data) => setListingData(data))
-      .catch((error) => console.error(error));
+      .then((data) => {
+         setListingData(data);
+      setLoading(true)
+  })
+
+      .catch((error) => { console.error(error);
+        setLoading(false)
+      });
+    
   }, []);
+
+  
 
   const groupByArea = listingData?.length
     ? Object.groupBy(listingData, ({ city }) => city)
