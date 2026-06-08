@@ -1,5 +1,10 @@
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Noto+Sans+Nabataean&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 body{
   margin: 20px;
+  font-family: "Roboto", sans-serif;
 }
 
 header {
@@ -8,6 +13,13 @@ header {
   align-items: center;
   justify-content: space-evenly;
   flex-wrap: wrap;
+}
+
+.header-divider{
+  height: 1px;
+  border: none;
+  background-color: #2ad151;
+  
 }
 
 button{
@@ -26,7 +38,7 @@ button{
 
 .green600{
   color: #267338;
-  margin-left: 150px;
+  margin-left: 50px;
 }
 
 a{
@@ -47,6 +59,11 @@ p{
   font-size: 1.2rem;
 }
 .prop-container:hover{
+  background-color: #95dfa669;
+ 
+}
+
+.prop-container:focus-visible{
   background-color: #95dfa669;
  
 }
@@ -86,23 +103,83 @@ text-align: center;
 }
 
 .listing-details-page{
-  padding: 0px 100px;
+  width: 90%;
+  margin: auto;
 }
+
 .pic-container{
+  width: 90%;
+  margin: auto;
+  height: 500px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   gap: 5px;
-flex-wrap: wrap;
+
+ 
+}
+
+.pic-container img {
+  width: 85%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.main-pic{
+  position: relative; 
+  flex: 2;
+  height: 100%;
+  border-bottom-left-radius: 10px;
  
 }
 
 .pic-column{
-  flex-wrap: wrap;
- 
   display: flex;
   flex-direction: column;
+  gap: 5px;
+flex: 1;
+ 
+ 
+
+  
 }
+.basic-info-container{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 2%;
+  align-items: center;
+  align-content: center;
+  border: #1bd643 solid 1px;
+  border-radius: 8px;
+}
+
+.basic-info{
+ 
+  
+  border-radius: 8px;
+  text-align: center;
+ 
+}
+
+.description-contact-flex{
+  margin-top: 50px;
+  display: flex;
+  
+  justify-content: space-evenly;
+  align-items: flex-start;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+  gap: 5px;
+
+}
+.beds-baths{
+  display: flex;
+  gap: 2%;
+  justify-content: center;
+}
+
+
 
 
 
@@ -116,7 +193,29 @@ flex-wrap: wrap;
 .text-center{
   text-align: center;
 }
+.description{
+  width: 50%;
+    border: 1px solid #1bd643;
+    height: auto;
+    padding: 5%;
+    border-radius: 8px;
+}
 
+
+
+
+@media (max-width: 400px) {
+  .description{
+    width: 100%;
+  }
+  .pic-column{
+    display: none;
+  }
+  .main-pic{
+border-radius: 8px;
+height: 75%;
+  }
+}
 /* 
 
 flexbox

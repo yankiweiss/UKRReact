@@ -3,45 +3,31 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { FaLongArrowAltLeft} from "react-icons/fa";
-import { useRef } from 'react';
+import { FaLongArrowAltLeft } from "react-icons/fa";
+import { useRef } from "react";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
+// fixed sizing vs relative
 
-//useState,
-// 1. basic useState set up,
-//2. passing the previous state count
-//3. passing the previous value to the next previous.
-//4. having the use state only ones.
-
+//
 function ListingDetails() {
   const [listing, setListing] = useState({});
-  const [currentImage, setCurrentImage] = useState(0)
+  const [currentImage, setCurrentImage] = useState(0);
   const mainImage = useRef(null);
 
-
-  const {uploadedFiles } = listing;
+  const { uploadedFiles } = listing;
 
  
 
-  console.log(uploadedFiles)
-
-  
-
   const nextImage = () => {
-    setCurrentImage((prevImage) => 
-      prevImage === uploadedFiles.length - 1 ?  0  : prevImage + 1
-    )} 
+    setCurrentImage((prevImage) =>
+      prevImage === uploadedFiles.length - 1 ? 0 : prevImage + 1,
+    );
+  };
 
-   const prevImage = () => {
-   setCurrentImage((prevImage) => 
-  prevImage ===  0 ? 0 : prevImage - 1)
-  
-  } 
-
-  
-
-  
+  const prevImage = () => {
+    setCurrentImage((prevImage) => (prevImage === 0 ? 0 : prevImage - 1));
+  };
 
   const { id } = useParams();
 
@@ -59,184 +45,165 @@ function ListingDetails() {
       <div className="listing-details-page" style={{ minHeight: "1000px" }}>
         <div
           style={{
+            marginTop: '20px',
             display: "flex",
             alignItems: "center",
-            justifyContent: "space-around",
-            gap: "45px",
-            width: "65vw",
+            justifyContent: "center",
+            alignContent: "center",
+            gap: "10%",
+            width: "100%",
           }}
         >
           <Link to="/">
             <FaLongArrowAltLeft color="#319648" fontSize={50} />{" "}
-            {/*<span style={{color: '#174622', fontSize : '15px'}}>Back To Home</span>*/}
           </Link>
 
           <h1 className="bold-Dark">{listing.address}</h1>
-
-          {/* 
-
-1. display flex,
-2. justify content: center,  space between
-3. align items 
-4. flex-direction: column/ rows.
-5. gap.
-6. flex-wrap
-7. align -content 
-8. flex basis
-9. flex-grow
- */}
         </div>
 
+<section className="beds-baths">
+  <p> {`${listing?.bedrooms} Bedrooms`}</p> <p> {`${listing?.baths} Baths`}</p>
+</section>
+       
+
+      
+
         <div className="pic-container">
-          <div>
+          <div className="main-pic">
+            <button
+              onClick={prevImage}
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "10%",
+                border: "none",
+              }}
+            >
+              <IoIosArrowDropleft
+                color="#1bd643"
+                stroke="white"
+                fontSize={65}
+              />{" "}
+            </button>
             <img
               src={listing?.uploadedFiles?.[currentImage]}
               ref={mainImage}
-              width={705}
               style={{
-                borderRadius: "8px",
-                MaxWidth: "700px",
-                width: "700px",
-                height: '500px',
-                maxHeight: "500px",
-            
-              
+                width: "100%",
+                height: "100%",
+               borderRadius: '8px'
+              }}
+            ></img>
+
+            <button
+              onClick={nextImage}
+              style={{
+                position: "absolute",
+                top: "50%",
+                right: "10%",
+                border: "none",
+              }}
+            >
+              <IoIosArrowDropright color="#1bd643" fontSize={65} />{" "}
+            </button>
+          </div>
+
+          <div className="pic-column">
+            <img
+              src={listing?.uploadedFiles?.[1]}
+              style={{ width: "100%", height: "50%" }}
+            ></img>
+
+            <img
+              src={listing?.uploadedFiles?.[2]}
+              style={{ width: "100%", height: "50%" }}
+            ></img>
+          </div>
+
+          <div className="pic-column">
+            <img
+              src={listing?.uploadedFiles?.[3]}
+              style={{
+                width: "100%",
+                height: "50%",
+                borderTopRightRadius: "10px",
+              }}
+            ></img>
+
+            <img
+              src={listing?.uploadedFiles?.[4]}
+              style={{
+                width: "100%",
+                height: "50%",
+                borderBottomRightRadius: "10px",
               }}
             ></img>
           </div>
-          <div className="pic-column">
-            <div>
-              <img
-                src={listing?.uploadedFiles?.[1]}
-                width={335}
-                style={{
-                  MaxWidth: "315px",
-                  width: "315px",
-                  maxHeight: "240px",
-                  minHeight: "240px",
-               
-                }}
-              ></img>
-            </div>
-            <div>
-              <img
-                src={listing?.uploadedFiles?.[2]}
-                width={335}
-                style={{
-                  MaxWidth: "315px",
-                  width: "315px",
-                  maxHeight: "240px",
-                  minHeight: "240px",
-                }}
-              ></img>
-            </div>
-          </div>
-          <div className="pic-column">
-            <div>
-              <img
-                src={listing?.uploadedFiles?.[3]}
-                style={{
-                  borderTopRightRadius: "8px",
-                  MaxWidth: "315px",
-                  width: "315px",
-                  maxHeight: "240px",
-                  minHeight: "240px",
-                }}
-              ></img>
-            </div>
-            <div>
-              <img
-                src={listing?.uploadedFiles?.[4]}
-                style={{
-                  borderBottomRightRadius: "8px",
-                  MaxWidth: "315px",
-                  width: "315px",
-                  maxHeight: "240px",
-                  minHeight: "240px",
-                }}
-              ></img>
-            </div>
-          </div>
         </div>
 
-     <button onClick={prevImage}>
-         <IoIosArrowDropleft color="#1bd643" stroke="white" fontSize={65} style={{position: 'absolute', top: '450px', left: '300px'}}/>{" "}
-         </button>
-         <button onClick={nextImage}>
-         <IoIosArrowDropright color="#1bd643" fontSize={65} style={{position: 'absolute', top: '450px', left: '900px'}}/>{" "}
-         </button>
+         
 
-        {/*<div className="listDetail-side-bar-flex">
+        <section className="description-contact-flex">
+          <div
+          className="description">
+            <h2 className="text-center bold-Dark">Description</h2>
 
-          <section
-            className="listDetail-top-side-bar "
-            style={{
-              border: "1px solid green",
-              width: "400px",
-              height: "auto",
-              borderRadius: "8px",
-              marginBottom: '15px'
-            }}
-          >
-            <h2 className="text-center bold-Dark">Quick Facts:</h2>
+            <p style={{textAlign: 'center', width: '100%'}}>{listing?.description}</p>
+          </div>
 
-            <div style={{display: 'flex', justifyContent: 'space-evenly'}}>
 
-            <h3 className="bold-Dark">{`Beds ${listing.bedrooms} `}</h3>
-
-            <h3 className="bold-Dark">{`Baths ${listing.baths} `}</h3>
-
-            </div>
-
-            <h2 className="text-center bold-Dark">Price Breakdown:</h2>
-          </section>
-
-           <section
-            className="listDetail-top-side-bar "
-            style={{
-              border: "1px solid green",
-              width: "400px",
-              height: "auto",
-              borderRadius: "8px",
-               marginBottom: '15px'
-            }}
-          >
-           <h2 className="text-center bold-Dark">Available</h2>
-          </section>
-
-          <section
-            className="listDetail-top-side-bar "
-            style={{
-              border: "1px solid green",
-              width: "400px",
-              height: "auto",
-              borderRadius: "8px",
-              marginBottom: '15px'
-            }}
-          >
-           <h2 className="text-center bold-Dark">Ownership Details</h2>
-          </section>
-
-          </div>*/}
-
-        {/*</div>*/}
-
-        <section
-          className="listDetail-top-side-bar "
-          style={{
-            border: "1px solid green",
-            width: "90%",
-            height: "auto",
-            borderRadius: "8px",
-            marginTop: "20px",
-          }}
-        >
-          <h2 className="text-center bold-Dark">Description</h2>
-        </section>
-      </div>
-
+<div className="contact-basic-info">
+  <div className="basic-info-container">
 
      
+          <div className="basic-info">
+            <h4 className="bold-Dark">Property Type</h4>
+            <h3 className="bold-Dark">{listing?.bedrooms}</h3>
+          </div>
+
+          <div className="basic-info">
+            <h2 className="bold-Dark">Baths</h2>
+            <h3 className="bold-Dark">{listing?.baths}</h3>
+          </div>
+          <div className="basic-info">
+            <h2 className="bold-Dark">Bedrooms</h2>
+            <h3 className="bold-Dark">{listing?.bedrooms}</h3>
+          </div>
+          </div>
+    
+
+
+          <div
+          className="contact-quick-details"
+            style={{
+              border: "1px solid #1bd643",
+              height: "auto",
+              padding: "10px",
+              borderRadius: "8px",
+            }}
+          >
+            <h2 className="text-center bold-Dark">Contact</h2>
+
+            <h2
+              style={{ textAlign: "center" }}
+            >{`Phone: ${listing?.phone}`}</h2>
+
+            <h2
+              style={{ textAlign: "center" }}
+            >{`Email: ${listing?.email}`}</h2>
+          </div>
+          </div>
+
+          
+
+       
+        </section>
+        </div>
+
+
+      <section>
+        <h1>map</h1>
+      </section>
     </>
   );
 }
