@@ -3,9 +3,45 @@
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { FaLongArrowAltLeft} from "react-icons/fa";
+import { useRef } from 'react';
+import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+
+
+//useState,
+// 1. basic useState set up,
+//2. passing the previous state count
+//3. passing the previous value to the next previous.
+//4. having the use state only ones.
 
 function ListingDetails() {
   const [listing, setListing] = useState({});
+  const [currentImage, setCurrentImage] = useState(0)
+  const mainImage = useRef(null);
+
+
+  const {uploadedFiles } = listing;
+
+ 
+
+  console.log(uploadedFiles)
+
+  
+
+  const nextImage = () => {
+    setCurrentImage((prevImage) => 
+      prevImage === uploadedFiles.length - 1 ?  0  : prevImage + 1
+    )} 
+
+   const prevImage = () => {
+   setCurrentImage((prevImage) => 
+  prevImage ===  0 ? 0 : prevImage - 1)
+  
+  } 
+
+  
+
+  
 
   const { id } = useParams();
 
@@ -21,37 +57,116 @@ function ListingDetails() {
   return (
     <>
       <div className="listing-details-page" style={{ minHeight: "1000px" }}>
-        <Link to="/">
-          <p>Go Back To Home Page</p>
-        </Link>
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-around",
+            gap: "45px",
+            width: "65vw",
+          }}
+        >
+          <Link to="/">
+            <FaLongArrowAltLeft color="#319648" fontSize={50} />{" "}
+            {/*<span style={{color: '#174622', fontSize : '15px'}}>Back To Home</span>*/}
+          </Link>
 
-        <h1 className="bold-Dark">{listing.address}</h1>
+          <h1 className="bold-Dark">{listing.address}</h1>
 
-        <div className="listDetail-flex">
-          <section
-            style={{
-              width: "1200px",
-              height: "600px",
-              borderRadius: "8px",
-            }}
-          >
+          {/* 
+
+1. display flex,
+2. justify content: center,  space between
+3. align items 
+4. flex-direction: column/ rows.
+5. gap.
+6. flex-wrap
+7. align -content 
+8. flex basis
+9. flex-grow
+ */}
+        </div>
+
+        <div className="pic-container">
+          <div>
             <img
-              src={listing?.uploadedFiles?.[0]}
+              src={listing?.uploadedFiles?.[currentImage]}
+              ref={mainImage}
+              width={705}
               style={{
-                width: "85%",
-                height: "100%",
-                maxWidth: "100%",
-                minHeight: "75%",
-                maxHeight: "100%",
-                objectFit: "cover",
                 borderRadius: "8px",
-                display: "block",
-                margin: 'auto'
+                MaxWidth: "700px",
+                width: "700px",
+                height: '500px',
+                maxHeight: "500px",
+            
+              
               }}
             ></img>
-          </section>
+          </div>
+          <div className="pic-column">
+            <div>
+              <img
+                src={listing?.uploadedFiles?.[1]}
+                width={335}
+                style={{
+                  MaxWidth: "315px",
+                  width: "315px",
+                  maxHeight: "240px",
+                  minHeight: "240px",
+               
+                }}
+              ></img>
+            </div>
+            <div>
+              <img
+                src={listing?.uploadedFiles?.[2]}
+                width={335}
+                style={{
+                  MaxWidth: "315px",
+                  width: "315px",
+                  maxHeight: "240px",
+                  minHeight: "240px",
+                }}
+              ></img>
+            </div>
+          </div>
+          <div className="pic-column">
+            <div>
+              <img
+                src={listing?.uploadedFiles?.[3]}
+                style={{
+                  borderTopRightRadius: "8px",
+                  MaxWidth: "315px",
+                  width: "315px",
+                  maxHeight: "240px",
+                  minHeight: "240px",
+                }}
+              ></img>
+            </div>
+            <div>
+              <img
+                src={listing?.uploadedFiles?.[4]}
+                style={{
+                  borderBottomRightRadius: "8px",
+                  MaxWidth: "315px",
+                  width: "315px",
+                  maxHeight: "240px",
+                  minHeight: "240px",
+                }}
+              ></img>
+            </div>
+          </div>
+        </div>
 
-          <div className="listDetail-side-bar-flex">
+     <button onClick={prevImage}>
+         <IoIosArrowDropleft color="#1bd643" stroke="white" fontSize={65} style={{position: 'absolute', top: '450px', left: '300px'}}/>{" "}
+         </button>
+         <button onClick={nextImage}>
+         <IoIosArrowDropright color="#1bd643" fontSize={65} style={{position: 'absolute', top: '450px', left: '900px'}}/>{" "}
+         </button>
+
+        {/*<div className="listDetail-side-bar-flex">
 
           <section
             className="listDetail-top-side-bar "
@@ -102,25 +217,26 @@ function ListingDetails() {
            <h2 className="text-center bold-Dark">Ownership Details</h2>
           </section>
 
-          </div>
+          </div>*/}
 
-          
-        </div>
-
+        {/*</div>*/}
 
         <section
-            className="listDetail-top-side-bar "
-            style={{
-              border: "1px solid green",
-              width: "90%",
-              height: "auto",
-              borderRadius: "8px",
-              marginTop: '20px'
-            }}
-          >
-           <h2 className="text-center bold-Dark">Description</h2>
-          </section>
+          className="listDetail-top-side-bar "
+          style={{
+            border: "1px solid green",
+            width: "90%",
+            height: "auto",
+            borderRadius: "8px",
+            marginTop: "20px",
+          }}
+        >
+          <h2 className="text-center bold-Dark">Description</h2>
+        </section>
       </div>
+
+
+     
     </>
   );
 }

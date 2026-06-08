@@ -20,6 +20,7 @@ button{
   padding: 0px 10px;
   text-align: center;
   color: #267338;  
+  cursor: pointer;
 }
 
 
@@ -87,10 +88,22 @@ text-align: center;
 .listing-details-page{
   padding: 0px 100px;
 }
-.listDetail-flex{
+.pic-container{
   display: flex;
- justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+flex-wrap: wrap;
+ 
 }
+
+.pic-column{
+  flex-wrap: wrap;
+ 
+  display: flex;
+  flex-direction: column;
+}
+
 
 
 /* TEXT UTILS */
