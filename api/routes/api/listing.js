@@ -7,7 +7,7 @@ router.route('/')
 
 
 .get(listingController.getAllListing);
-router.get("/email", listingController.getListingByEmail);
+
 router.get("/:id", listingController.getListingById);
 router.post("/", listingController.createNewListing);
 //router.put("/:id", listingController.editListingById);
