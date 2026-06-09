@@ -45,22 +45,20 @@ app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
-
-
-
-app.use("/api/listing", require("./routes/api/listing.js")); 
+app.use("/api/listing", require("./routes/api/listing.js"));
 app.use("/api/checkout", require("./routes/stripe.js"));
-
 
 const PORT = process.env.PORT || 3000;
 
-
-
-
-
 connectDB();
 
-mongoose.connection.once("open", () => {
-  console.log("Connected to MongoDB");
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-});
+module.exports = app;
+
+if (require.main === module) {
+  mongoose.connection.once("open", () => {
+    console.log("Connected to MongoDB");
+    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+  });
+}
+
+export default app;
