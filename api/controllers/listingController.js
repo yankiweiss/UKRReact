@@ -1,6 +1,5 @@
-const path = require("path");
-const fs = require("fs");
-const cloudinary = require("../utils/cloudinary");
+
+const cloudinary = require("../utils/cloudinary.js");
 const Listing = require('../model/Listing')
 
 // GET all listings

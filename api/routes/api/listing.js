@@ -1,12 +1,9 @@
 const express = require("express");
 const router = express.Router();
-const listingController = require("../../controllers/listingController");
+const listingController = require("../../controllers/listingController.js");
 
 
-router.route('/')
-
-
-.get(listingController.getAllListing);
+router.route('/').get(listingController.getAllListing);
 
 router.get("/:id", listingController.getListingById);
 router.post("/", listingController.createNewListing);
