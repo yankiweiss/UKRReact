@@ -236,11 +236,11 @@ const resetTakenDatesForListings = async (req, res) => {
 module.exports = {
   getAllListing,
   createNewListing,
-  updateListingStatus,
+  //updateListingStatus,
   getListingById,
-  approveListingById,
-  getListingByEmail,
-  editListingById,
-  deleteListingById,
-  resetTakenDatesForListings
+  //approveListingById,
+  //getListingByEmail,
+  //editListingById,
+  //deleteListingById,
+  //resetTakenDatesForListings
 };
