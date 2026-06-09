@@ -48,7 +48,7 @@ app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 
 
-app.use("/api/listing", require("./routes/api/listing.js"));
+app.use("/api/listing", require("./routes/api/listing.js")); 
 app.use("/api/checkout", require("./routes/stripe.js"));
 
 
