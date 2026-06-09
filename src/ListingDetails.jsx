@@ -7,6 +7,7 @@ import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useRef } from "react";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 
+
 // fixed sizing vs relative
 
 //
@@ -14,6 +15,7 @@ function ListingDetails() {
   const [listing, setListing] = useState({});
   const [currentImage, setCurrentImage] = useState(0);
   const mainImage = useRef(null);
+  const [loading, setLoading] = useState(true)
 
   const { uploadedFiles } = listing;
 
@@ -34,7 +36,10 @@ function ListingDetails() {
   useEffect(() => {
     fetch(`https://www.upstatekosherrentals.com/listing/${id}`)
       .then((response) => response.json())
-      .then((data) => setListing(data))
+      .then((data) => {setListing(data)
+        setLoading(false)
+      })
+      
       .catch((error) => console.error(error));
   }, []);
 
@@ -43,17 +48,19 @@ function ListingDetails() {
   return (
     <>
       <div className="listing-details-page" style={{ minHeight: "1000px" }}>
-        <div
-          style={{
-            marginTop: '20px',
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            alignContent: "center",
-            gap: "10%",
-            width: "100%",
-          }}
-        >
+
+        { loading ? (
+          
+          <><div className="top-heading skeleton" style={{width: '70%', height: '25px', margin: '35px auto'}}></div>
+
+        <div className="pic-container skeleton"></div>
+
+        </>
+        
+      ) :  (
+          <>
+        <div className="top-heading">
+     
           <Link to="/">
             <FaLongArrowAltLeft color="#319648" fontSize={50} />{" "}
           </Link>
@@ -198,9 +205,14 @@ function ListingDetails() {
 
        
         </section>
-        </div>
+          
+        
+        </>
+          )}
 
+          </div>
 
+        
       <section>
         <h1>map</h1>
       </section>

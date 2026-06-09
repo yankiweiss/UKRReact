@@ -68,6 +68,24 @@ p{
  
 }
 
+.prop-container-img{
+  width: 100%;
+  height: 75%;
+  max-width: 100%;
+  min-height: 75%;
+  max-height: 75%;
+  object-fit: cover;
+  border-radius: 8px;
+  display: block;
+}
+.home-beds-baths{
+  display: flex;
+  justify-content: start;
+  margin: 0px;
+  gap: 25px;
+  height: 15px;
+}
+
 .area{
   border: #267338 2px solid;
   display: inline-block;
@@ -100,6 +118,18 @@ p{
 .footer-contact{
 text-align: center;
   width: 40%;
+}
+
+/* detailed listing page */
+
+.top-heading{
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 10%;
+  width: 100%;          
 }
 
 .listing-details-page{
@@ -201,7 +231,26 @@ flex: 1;
     border-radius: 8px;
 }
 
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #e0e0e0 10%,
+    #f5f5f5 50%,
+    #e0e0e0 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  border-radius: 8px;
+}
 
+@keyframes shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
 
 
 @media (max-width: 400px) {
