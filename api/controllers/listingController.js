@@ -1,5 +1,5 @@
 
-const cloudinary = require("../utils/cloudinary.js");
+//const cloudinary = require("../utils/cloudinary.js");
 const Listing = require('../model/Listing')
 
 // GET all listings
