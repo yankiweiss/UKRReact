@@ -4,7 +4,7 @@ const express = require("express");
 const app = express();
 const path = require("path");
 const mongoose = require("mongoose");
-const connectDB = require("./config/dbConn.js");
+const connectDB = require("./dbConn.js");
 const fileUpload = require("express-fileupload");
 const cookieParser = require("cookie-parser");
 
