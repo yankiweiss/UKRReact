@@ -46,11 +46,11 @@ app.use(cors(corsOptions));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 app.use("/api/admin", require("./routes/api/admin.js"));
-app.use("/register", require("./routes/register.js"));
-app.use("/refresh", require("./routes/refresh.js"));
-app.use("/auth", require("./routes/auth.js"));
-app.use("/listing", require("./routes/api/listing.js"));
-app.use("/checkout", require("./routes/stripe.js"));
+app.use("/api/register", require("./routes/register.js"));
+app.use("/api/refresh", require("./routes/refresh.js"));
+app.use("/api/auth", require("./routes/auth.js"));
+app.use("/api/listing", require("./routes/api/listing.js"));
+app.use("/api/checkout", require("./routes/stripe.js"));
 
 app.use("/search", require("./routes/api/search.js"));
 
