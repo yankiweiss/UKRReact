@@ -55,10 +55,9 @@ app.use("/search", require("./routes/api/search.js"));
 
 const PORT = process.env.PORT || 3000;
 
-const emailRouter = require("./routes/email");
 
-app.use("/email", emailRouter);
-app.use("/", require("./routes/root.js"));
+
+
 
 connectDB();
 
