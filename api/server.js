@@ -45,10 +45,9 @@ app.use(cors(corsOptions));
 
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
-app.use("/api/admin", require("./routes/api/admin.js"));
-app.use("/api/register", require("./routes/register.js"));
-app.use("/api/refresh", require("./routes/refresh.js"));
-app.use("/api/auth", require("./routes/auth.js"));
+
+
+
 app.use("/api/listing", require("./routes/api/listing.js"));
 app.use("/api/checkout", require("./routes/stripe.js"));
 
