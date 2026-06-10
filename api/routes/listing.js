@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const listingController = require("../../controllers/listingController.js");
+const listingController = require("../controllers/listingController.js");
 
 
 router.route('/').get(listingController.getAllListing);
