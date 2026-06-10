@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 import { useRef } from "react";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
+import Banner from "./Banner";
 
 
 // fixed sizing vs relative
@@ -47,6 +48,8 @@ function ListingDetails() {
 
   return (
     <>
+
+    <Banner/>
       <div className="listing-details-page" style={{ minHeight: "1000px" }}>
 
         { loading ? (

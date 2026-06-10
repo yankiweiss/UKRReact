@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 import { Link } from "react-router-dom";
+import Banner from "./Banner";
 
 function Homepage() {
   const [listingData, setListingData] = useState([]);
@@ -31,6 +32,8 @@ function Homepage() {
   return (
     <>
       {/* search section */}
+
+      <Banner />
 
       <section>
         <h1 className="green600">All Homes:</h1>

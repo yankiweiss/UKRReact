@@ -209,6 +209,20 @@ flex: 1;
   justify-content: center;
 }
 
+.banner-text{
+  color: red;
+  width: 80%;
+  margin: auto;
+  text-align: center;
+
+}
+
+.banner-container{
+  border-top: 3px solid rgba(255, 0, 0, 0.363);
+ border-bottom: 3px solid rgba(255, 0, 0, 0.308);
+  padding: 20px 0px;
+}
+
 
 
 
