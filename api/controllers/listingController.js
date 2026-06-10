@@ -236,7 +236,6 @@ const getListingById = async (req, res) => {
 module.exports = {
   getAllListing,
   createNewListing,
-  
-  getListingById,
+  getListingById
   
 };

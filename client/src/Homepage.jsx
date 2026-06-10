@@ -8,7 +8,7 @@ function Homepage() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("https://upstatekosherrentals.com/listing")
+    fetch("https://www.jwprosoftwaresolutions.com/listing")
       .then((response) => response.json())
       .then((data) => {
         setListingData(data);

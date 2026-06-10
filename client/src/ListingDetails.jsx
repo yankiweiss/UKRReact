@@ -34,7 +34,7 @@ function ListingDetails() {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://www.upstatekosherrentals.com/listing/${id}`)
+    fetch(`https://www.jwprosoftwaresolutions.com/listing/${id}`)
       .then((response) => response.json())
       .then((data) => {setListing(data)
         setLoading(false)
