@@ -236,11 +236,7 @@ const getListingById = async (req, res) => {
 module.exports = {
   getAllListing,
   createNewListing,
-  //updateListingStatus,
+  
   getListingById,
-  //approveListingById,
-  //getListingByEmail,
-  //editListingById,
-  //deleteListingById,
-  //resetTakenDatesForListings
+  
 };
