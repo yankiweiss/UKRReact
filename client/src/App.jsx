@@ -8,11 +8,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ListingDetails from "./ListingDetails";
 import PostListing from "./PostListing";
 import Testing from "./Testing";
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   return (
     <>
       <BrowserRouter>
+      <Analytics/>
         <ScrollToTop />
         <Header />
 

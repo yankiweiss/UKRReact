@@ -6,6 +6,7 @@ import App from './App.jsx'
 
 
 
+
 //import router and set up router correctly
 // having route as main paths
 // having the components that should stay all along.
