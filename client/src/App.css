@@ -81,9 +81,10 @@ p{
 .home-beds-baths{
   display: flex;
   justify-content: start;
+  flex-direction: column;
   margin: 0px;
-  gap: 25px;
-  height: 15px;
+  
+
 }
 
 .area{
@@ -218,8 +219,8 @@ flex: 1;
 }
 
 .banner-container{
-  border-top: 3px solid rgba(255, 0, 0, 0.363);
- border-bottom: 3px solid rgba(255, 0, 0, 0.308);
+  border-top: 4px solid rgba(255, 0, 0, 0.233);
+ border-bottom: 4px solid rgba(255, 0, 0, 0.212);
   padding: 20px 0px;
 }
 
@@ -294,3 +295,14 @@ by default block item will go under each
 
 
 */
+
+/* Testing */
+
+.parent .testing-button{
+  display: none;
+}
+.testing-button:hover{
+  display:block;
+  color: red;
+  cursor: pointer;
+}

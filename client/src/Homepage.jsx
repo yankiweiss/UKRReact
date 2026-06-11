@@ -52,14 +52,17 @@ function Homepage() {
         {loading
           ? Array.from({ length: 15 }).map((_, index) => (
               <div className="prop-container" key={index}>
+                <div className="prop-container-img skeleton"></div>
+
                 <div
-                    className="prop-container-img skeleton"
-                 
+                  className="home-beds-baths skeleton"
+                  style={{ marginTop: "20px" }}
                 ></div>
 
-                
-                 <div className="home-beds-baths skeleton" style={{marginTop: '20px'}}>
-                </div>
+                <div
+                  className="home-beds-baths skeleton"
+                  style={{ marginTop: "10px" }}
+                ></div>
               </div>
             ))
           : allListings.map((listing) => (
@@ -68,24 +71,28 @@ function Homepage() {
                   <img
                     src={listing.uploadedFiles[0]}
                     className="prop-container-img"
-                    
                   ></img>
 
                   <div className="area">{listing.city}</div>
-                  <p style={{ margin: "0px" }}>{listing.street}</p>
-                  <div
-                  className="home-beds-baths"
-                  
-                  >
-                    <p style={{ margin: "5px 0px" }}>Beds {listing.bedrooms}</p>
-                    <p style={{ margin: "5px 0px" }}>Baths {listing.baths}</p>
+              
+                  <div className="home-beds-baths">
+                        <p style={{ margin: "0px" }}>{listing.street}</p>
+
+                    <p >Beds {listing.bedrooms} - Baths {listing.baths}</p>
+                   
+                    
                   </div>
                 </div>
               </Link>
             ))}
       </section>
 
-      
+      <div className="parent">
+
+      <Link to={'/Testing'}>
+      <button className="testing-button">Test</button></Link>
+
+      </div>
     </>
   );
 }

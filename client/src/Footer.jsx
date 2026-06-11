@@ -36,6 +36,11 @@ function Footer() {
           </h2>
         </div>
       </section>
+
+      <div style={{display: 'flex', justifyContent: 'center'}}>
+
+      <p style={{color: 'black'}}>v-0-0-0</p>
+      </div>
     </>
   );
 }

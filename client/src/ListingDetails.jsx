@@ -72,7 +72,7 @@ function ListingDetails() {
         </div>
 
 <section className="beds-baths">
-  <p> {`${listing?.bedrooms} Bedrooms`}</p> <p> {`${listing?.baths} Baths`}</p>
+  <p> {listing?.bedrooms} Bedrooms{"    "} - {"    "}{listing?.baths} Baths</p>
 </section>
        
 

@@ -7,6 +7,7 @@ import ScrollToTop from "./ScrollToTop";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ListingDetails from "./ListingDetails";
 import PostListing from "./PostListing";
+import Testing from "./Testing";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/" element={<Homepage />} />
           <Route path="/listingDetails/:id" element={<ListingDetails />} />
           <Route path='/postListing' element={<PostListing />} />
+          <Route path="/Testing" element={<Testing/>}/>
           
         </Routes>
 
