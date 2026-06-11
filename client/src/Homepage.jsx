@@ -35,6 +35,8 @@ function Homepage() {
 
       <Banner />
 
+      <main className="homepage">
+
       <section>
         <h1 className="green600">All Homes:</h1>
 
@@ -93,6 +95,7 @@ function Homepage() {
       <button className="testing-button">Test</button></Link>
 
       </div>
+      </main>
     </>
   );
 }

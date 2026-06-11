@@ -1,9 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Noto+Sans+Nabataean&family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 body {
-  margin: 2%;
+  
   font-family: "Roboto", sans-serif;
   background-color: #eff0ef8a;
+}
+body .homepage{
+  margin: 1%;
 }
 
 header {
@@ -133,8 +136,9 @@ border-radius: 8px;
 }
 
 .listing-details-page {
-  width: 90%;
-  margin: auto;
+
+ 
+  margin: 0% 10%;
 }
 
 .pic-container {
