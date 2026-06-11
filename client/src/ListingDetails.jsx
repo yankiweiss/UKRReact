@@ -8,7 +8,6 @@ import { useRef } from "react";
 import { IoIosArrowDropleft, IoIosArrowDropright } from "react-icons/io";
 import Banner from "./Banner";
 
-
 // fixed sizing vs relative
 
 //
@@ -16,11 +15,9 @@ function ListingDetails() {
   const [listing, setListing] = useState({});
   const [currentImage, setCurrentImage] = useState(0);
   const mainImage = useRef(null);
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
 
   const { uploadedFiles } = listing;
-
- 
 
   const nextImage = () => {
     setCurrentImage((prevImage) =>
@@ -37,10 +34,11 @@ function ListingDetails() {
   useEffect(() => {
     fetch(`https://www.jwprosoftwaresolutions.com/listing/${id}`)
       .then((response) => response.json())
-      .then((data) => {setListing(data)
-        setLoading(false)
+      .then((data) => {
+        setListing(data);
+        setLoading(false);
       })
-      
+
       .catch((error) => console.error(error));
   }, []);
 
@@ -48,177 +46,174 @@ function ListingDetails() {
 
   return (
     <>
-
-    <Banner/>
+      <Banner />
       <div className="listing-details-page" style={{ minHeight: "1000px" }}>
-
-        { loading ? (
-          
-          <><div className="top-heading skeleton" style={{width: '70%', height: '25px', margin: '35px auto'}}></div>
-
-        <div className="pic-container skeleton"></div>
-
-        </>
-        
-      ) :  (
+        {loading ? (
           <>
-        <div className="top-heading">
-     
-          <Link to="/">
-            <FaLongArrowAltLeft color="#319648" fontSize={50} />{" "}
-          </Link>
+            <div
+              className="top-heading skeleton"
+              style={{ width: "70%", height: "25px", margin: "35px auto" }}
+            ></div>
 
-          <h1 className="bold-Dark">{listing.address}</h1>
-        </div>
+            <div className="pic-container skeleton"></div>
+          </>
+        ) : (
+          <>
+            <div className="top-heading">
+              <Link to="/">
+                <FaLongArrowAltLeft color="#319648" fontSize={50} />{" "}
+              </Link>
 
-<section className="beds-baths">
-  <p> {listing?.bedrooms} Bedrooms{"    "} - {"    "}{listing?.baths} Baths</p>
-</section>
-       
+              <h1 className="bold-Dark">{listing.address}</h1>
+            </div>
 
-      
+            <section className="beds-baths">
+              <p>
+                {" "}
+                {listing?.bedrooms} Bedrooms{"    "} - {"    "}
+                {listing?.baths} Baths
+              </p>
+            </section>
 
-        <div className="pic-container">
-          <div className="main-pic">
-            <button
-              onClick={prevImage}
-              style={{
-                position: "absolute",
-                top: "50%",
-                left: "10%",
-                border: "none",
-              }}
-            >
-              <IoIosArrowDropleft
-                color="#1bd643"
-                stroke="white"
-                fontSize={65}
-              />{" "}
-            </button>
-            <img
-              src={listing?.uploadedFiles?.[currentImage]}
-              ref={mainImage}
-              style={{
-                width: "100%",
-                height: "100%",
-               borderRadius: '8px'
-              }}
-            ></img>
+            <div className="pic-container">
+              <div className="main-pic">
+                <button
+                  onClick={prevImage}
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "10%",
+                    border: "none",
+                  }}
+                >
+                  <IoIosArrowDropleft
+                    color="#1bd643"
+                    stroke="white"
+                    fontSize={65}
+                  />{" "}
+                </button>
+                <img
+                  src={listing?.uploadedFiles?.[currentImage]}
+                  ref={mainImage}
+                  style={{
+                    width: "100%",
+                    height: "100%",
+                    borderRadius: "8px",
+                  }}
+                ></img>
 
-            <button
-              onClick={nextImage}
-              style={{
-                position: "absolute",
-                top: "50%",
-                right: "10%",
-                border: "none",
-              }}
-            >
-              <IoIosArrowDropright color="#1bd643" fontSize={65} />{" "}
-            </button>
-          </div>
+                <button
+                  onClick={nextImage}
+                  style={{
+                    position: "absolute",
+                    top: "50%",
+                    right: "10%",
+                    border: "none",
+                  }}
+                >
+                  <IoIosArrowDropright color="#1bd643" fontSize={65} />{" "}
+                </button>
+              </div>
 
-          <div className="pic-column">
-            <img
-              src={listing?.uploadedFiles?.[1]}
-              style={{ width: "100%", height: "50%" }}
-            ></img>
+              <div className="pic-column">
+                <img
+                  src={listing?.uploadedFiles?.[1]}
+                  style={{ width: "100%", height: "50%" }}
+                ></img>
 
-            <img
-              src={listing?.uploadedFiles?.[2]}
-              style={{ width: "100%", height: "50%" }}
-            ></img>
-          </div>
+                <img
+                  src={listing?.uploadedFiles?.[2]}
+                  style={{ width: "100%", height: "50%" }}
+                ></img>
+              </div>
 
-          <div className="pic-column">
-            <img
-              src={listing?.uploadedFiles?.[3]}
-              style={{
-                width: "100%",
-                height: "50%",
-                borderTopRightRadius: "10px",
-              }}
-            ></img>
+              <div className="pic-column">
+                <img
+                  src={listing?.uploadedFiles?.[3]}
+                  style={{
+                    width: "100%",
+                    height: "50%",
+                    borderTopRightRadius: "10px",
+                  }}
+                ></img>
 
-            <img
-              src={listing?.uploadedFiles?.[4]}
-              style={{
-                width: "100%",
-                height: "50%",
-                borderBottomRightRadius: "10px",
-              }}
-            ></img>
-          </div>
-        </div>
+                <img
+                  src={listing?.uploadedFiles?.[4]}
+                  style={{
+                    width: "100%",
+                    height: "50%",
+                    borderBottomRightRadius: "10px",
+                  }}
+                ></img>
+              </div>
+            </div>
 
-         
+            <section className="description-contact-flex card">
+              <div className="description">
+                <h2 className=" bold-Dark main-header"  style={{margin: '0%'}}>Description</h2>
 
-        <section className="description-contact-flex">
-          <div
-          className="description">
-            <h2 className="text-center bold-Dark">Description</h2>
+                <hr className="main-underline" />
 
-            <p style={{textAlign: 'center', width: '100%'}}>{listing?.description}</p>
-          </div>
+                <p style={{ textAlign: "center", width: "100%" }}>
+                  {listing?.description}
+                </p>
+              </div>
 
+          
+                <div
+                  className="contact-quick-details"
 
-<div className="contact-basic-info">
-  <div className="basic-info-container">
+                >
+                  <h2 className=" bold-Dark main-header" style={{margin: '0%'}}>Contact</h2>
 
-     
-          <div className="basic-info">
-            <h4 className="bold-Dark">Property Type</h4>
-            <h3 className="bold-Dark">{listing?.bedrooms}</h3>
-          </div>
+                  <hr className="main-underline" />
 
-          <div className="basic-info">
-            <h2 className="bold-Dark">Baths</h2>
-            <h3 className="bold-Dark">{listing?.baths}</h3>
-          </div>
-          <div className="basic-info">
-            <h2 className="bold-Dark">Bedrooms</h2>
-            <h3 className="bold-Dark">{listing?.bedrooms}</h3>
-          </div>
-          </div>
+                  <h3
+                  
+                  >{`Phone: ${listing?.phone}`}</h3>
+
+                  <h3
+                    
+                  >{`Email: ${listing?.email}`}</h3>
+                </div>
+          
+
+              </section>
+
+              <div className="basic-info-container card">
+                <h2 className="main-header" style={{margin: '0%'}}>Basic Info</h2>
+                <hr className="main-underline"/>
+
+                <ul>
+                  <li>
+                    {" "}
+                    <h3 className="bold-Dark">
+                      Property Type: {listing?.propertyType}
+                    </h3>
+                  </li>
+
+                  <li>
+                    <div className="basic-info">
+                      <h3 className="bold-Dark">Baths: {listing?.baths}</h3>
+                    </div>
+                  </li>
+
+                  <li>
+                     <div className="basic-info">
+                  <h3 className="bold-Dark">Bedrooms: {listing?.bedrooms}</h3>
+                 
+                </div>
+                  </li>
+                </ul>
+              </div>
+            
+            
+          </>
+        )}
+      </div>
+
     
-
-
-          <div
-          className="contact-quick-details"
-            style={{
-              border: "1px solid #1bd643",
-              height: "auto",
-              padding: "10px",
-              borderRadius: "8px",
-            }}
-          >
-            <h2 className="text-center bold-Dark">Contact</h2>
-
-            <h2
-              style={{ textAlign: "center" }}
-            >{`Phone: ${listing?.phone}`}</h2>
-
-            <h2
-              style={{ textAlign: "center" }}
-            >{`Email: ${listing?.email}`}</h2>
-          </div>
-          </div>
-
-          
-
        
-        </section>
-          
-        
-        </>
-          )}
-
-          </div>
-
-        
-      <section>
-        <h1>map</h1>
-      </section>
     </>
   );
 }
