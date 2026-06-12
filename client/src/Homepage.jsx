@@ -48,7 +48,7 @@ console.log(featuredHouses)
           <div className="featured-listings-displayed">
 
             {loading
-          ? Array.from({ length: 5 }).map((_, index) => (
+          ? Array.from({ length: 6 }).map((_, index) => (
               <div className="prop-container" key={index}>
                 <div className="prop-container-img skeleton"></div>
 

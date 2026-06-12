@@ -62,8 +62,8 @@ a {
 
 .prop-container {
   /*border: #267338 solid 2px;*/
-  width: 350px;
-  height: 400px;
+  width: 275px;
+  height: 300px;
   border-radius: 8px;
   padding: 8px;
 }
@@ -108,7 +108,7 @@ p {
   font-weight: 700;
   /*font-style: italic;*/
   position: relative;
-  bottom: 275px;
+  bottom: 200px;
 }
 
 .divider {
