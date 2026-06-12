@@ -116,7 +116,7 @@ p {
 }
 
 .contact-quick-details{
-  width: 30%;
+  width: 100%;
  
 height: auto;
 border-radius: 8px;
@@ -136,7 +136,6 @@ border-radius: 8px;
 }
 
 .listing-details-page {
-
  
   margin: 0% 10%;
 }
@@ -175,7 +174,7 @@ border-radius: 8px;
 
   
   border-radius: 8px;
-  width: 96%;
+  width: 92%;
   
 }
 
@@ -188,12 +187,11 @@ border-radius: 8px;
 .description-contact-flex {
   margin-top: 2%;
   display: flex;
-
- justify-content: space-between;
+  flex-direction: column;
 
   margin-bottom: 2%;
-  flex-wrap: wrap;
-  gap: 2%;
+
+  gap: 10%;
 }
 .beds-baths {
   display: flex;
@@ -231,9 +229,10 @@ border-radius: 8px;
 
 .card{
  
-  padding: 2% 2% 2% 2%;
+  padding: 3.5% 3.5% 3.5% 3.5%;
   border-radius: 15px;
   background-color: white;
+  box-shadow: 4px 7px #ddddddb0;
 
 }
 .main-header{
@@ -250,7 +249,7 @@ border-radius: 8px;
   text-align: center;
 }
 .description {
-  width: 55%;
+  width: 100%;
   display: flex;
   align-items: start;
   justify-content: start;
@@ -285,6 +284,14 @@ border-radius: 8px;
     border-radius: 8px;
     height: 75%;
   }
+  .listing-details-page {
+ 
+  margin: 0% 0%;
+}
+
+.basic-info-container {
+  margin-top: 5%;
+}
 }
 /* 
 

@@ -37,6 +37,11 @@ function Homepage() {
 
       <main className="homepage">
 
+
+        <section>
+          
+        </section>
+
       <section>
         <h1 className="green600">All Homes:</h1>
 

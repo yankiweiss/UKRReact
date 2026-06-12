@@ -71,7 +71,7 @@ function ListingDetails() {
               <p>
                 {" "}
                 {listing?.bedrooms} Bedrooms{"    "} - {"    "}
-                {listing?.baths} Baths
+                {listing?.baths} Baths - {listing?.city}
               </p>
             </section>
 
@@ -161,7 +161,7 @@ function ListingDetails() {
 
           
                 <div
-                  className="contact-quick-details"
+                  className="contact-quick-details" style={{marginTop: '2%'}}
 
                 >
                   <h2 className=" bold-Dark main-header" style={{margin: '0%'}}>Contact</h2>
