@@ -5,8 +5,9 @@ body {
   font-family: "Roboto", sans-serif;
   background-color: #eff0ef8a;
 }
-body .homepage{
-  margin: 1%;
+.homepage{
+  margin: 0.5%;
+  min-height: 750px;
 }
 
 header {
@@ -34,6 +35,20 @@ button {
   text-align: center;
   color: #267338;
   cursor: pointer;
+}
+
+.featured-listing{
+  height: 70%;
+  min-height: 100%;
+  width: 100%;
+ 
+ 
+
+}
+.featured-listings-displayed{
+
+  display: flex;
+  justify-content: start;
 }
 
 .green600 {
@@ -116,7 +131,7 @@ p {
 }
 
 .contact-quick-details{
-  width: 100%;
+  width: 70%;
  
 height: auto;
 border-radius: 8px;
@@ -174,7 +189,7 @@ border-radius: 8px;
 
   
   border-radius: 8px;
-  width: 92%;
+  width: 93%;
   
 }
 
@@ -249,10 +264,9 @@ border-radius: 8px;
   text-align: center;
 }
 .description {
-  width: 100%;
+  width: 70%;
   display: flex;
-  align-items: start;
-  justify-content: start;
+  justify-content: center;
   flex-direction: column;
 
 }

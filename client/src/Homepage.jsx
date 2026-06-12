@@ -27,7 +27,10 @@ function Homepage() {
 
   const allListings = Object.values(groupByArea).flat();
 
-  console.log(listingData);
+
+const featuredHouses = listingData?.filter((f) => f.featured === 'true');
+
+console.log(featuredHouses)
 
   return (
     <>
@@ -38,12 +41,61 @@ function Homepage() {
       <main className="homepage">
 
 
-        <section>
-          
+        <section className="featured-listing">
+
+          <h1 className="green600">Featured Homes</h1>
+
+          <div className="featured-listings-displayed">
+
+            {loading
+          ? Array.from({ length: 5 }).map((_, index) => (
+              <div className="prop-container" key={index}>
+                <div className="prop-container-img skeleton"></div>
+
+                <div
+                  className="home-beds-baths skeleton"
+                  style={{ marginTop: "20px" }}
+                ></div>
+
+                <div
+                  className="home-beds-baths skeleton"
+                  style={{ marginTop: "10px" }}
+                ></div>
+              </div>
+            ))
+          : featuredHouses.map((listing) => (
+              <Link to={`/listingDetails/${listing._id}`}>
+                <div className="prop-container" key={listing.id}>
+                  <img
+                    src={listing.uploadedFiles[0]}
+                    className="prop-container-img"
+                  ></img>
+
+                  <div className="area">{listing.city}</div>
+              
+                  <div className="home-beds-baths">
+                        <p style={{ margin: "0px" }}>{listing.street}</p>
+
+                    <p >Beds {listing.bedrooms} - Baths {listing.baths}</p>
+                   
+                  
+                  </div>
+                </div>
+              </Link>
+                
+            ))}
+            </div>
+
+
+          <div>
+
+          </div>
+
+
         </section>
 
       <section>
-        <h1 className="green600">All Homes:</h1>
+        <h1 className="green600">All Homes</h1>
 
         {/* featured homes */}
       </section>
