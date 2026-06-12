@@ -149,12 +149,12 @@ function ListingDetails() {
             </div>
 
             <section className="description-contact-flex card">
-              <div className="description">
+              <div className="description" >
                 <h2 className=" bold-Dark main-header"  style={{margin: '0%'}}>Description</h2>
 
                 <hr className="main-underline" />
 
-                <p style={{ textAlign: "center", width: "100%" }}>
+                <p style={{ fontStyle: 'italic', width: "100%" }}>
                   {listing?.description}
                 </p>
               </div>
