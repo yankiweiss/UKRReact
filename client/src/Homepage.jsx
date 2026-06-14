@@ -76,7 +76,7 @@ console.log(featuredHouses)
                   <div className="home-beds-baths">
                         <p style={{ margin: "0px" }}>{listing.street}</p>
 
-                    <p style={{ margin: "2px 0px" }}>Beds {listing.bedrooms} - Baths {listing.baths}</p>
+                    <p style={{ margin: "2px 0px" }}>Bedrooms {listing.bedrooms} - Baths {listing.baths}</p>
                    
                   
                   </div>
