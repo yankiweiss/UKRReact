@@ -36,6 +36,43 @@ button {
   color: #267338;
   cursor: pointer;
 }
+.city-container{
+  background-color: rgb(186, 240, 186);
+  border-radius: 8px;
+  text-align: center;
+}
+.select-city{
+  padding: 2%;
+}
+.select-city:hover{
+background-color: #379e4f;
+}
+.search-parent{
+  width: 100vw;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+}
+.search-outer-container{
+  width: 50%;
+  height: 75%;
+  border-radius: 45px;
+  border: 2px solid #174622;
+  display: flex;
+  justify-content: space-evenly;
+}
+.button-flex{
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.search-icon-container{
+  border-radius: 50%;
+  border: 1px solid black;
+}
+
+
 
 .featured-listing{
   height: 70%;
