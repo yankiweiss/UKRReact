@@ -10,7 +10,7 @@ function Header() {
           <header>
      <Link to={'/'}><img src={logo} width={200}></img></Link> 
 
-      <div>
+      <div style={{display: 'flex'}}>
         <button>Share Your Space</button>
 
         <button>Sign In</button>
