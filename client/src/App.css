@@ -48,14 +48,16 @@ button {
 background-color: #379e4f;
 }
 .search-parent{
-  width: 100vw;
+  width: 90%;
   height: 100px;
-  display: flex;
-  justify-content: center;
+
+  
+  
 }
 .search-outer-container{
   width: 50%;
   height: 75%;
+  margin: auto;
   border-radius: 45px;
   border: 2px solid #174622;
   display: flex;

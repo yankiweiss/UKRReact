@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-//import { IoIosSearch } from "react-icons/io";
+import { IoIosSearch } from "react-icons/io";
 
 import { Link } from "react-router-dom";
 import Banner from "./Banner";
@@ -8,8 +8,8 @@ import Banner from "./Banner";
 function Homepage() {
   const [listingData, setListingData] = useState([]);
   const [loading, setLoading] = useState(true);
-  //const [select, setSelect] = useState();
-  //const [area, setArea] = useState("");
+  const [select, setSelect] = useState();
+  const [area, setArea] = useState("");
 
   useEffect(() => {
     fetch("https://www.jwprosoftwaresolutions.com/listing")
@@ -30,15 +30,15 @@ function Homepage() {
 
   const allListings = Object.values(groupByArea).flat();
 
-  //const cities = listingData?.map((listing) => listing.city);
-  //const bedrooms = listingData?.map((listing) => listing.bedrooms).sort();
-  //const baths = listingData.map((listing) => listing.baths).sort()
+  const cities = listingData?.map((listing) => listing.city);
+  const bedrooms = listingData?.map((listing) => listing.bedrooms).sort();
+  const baths = listingData.map((listing) => listing.baths).sort()
 
-  //const bedroomsSet = new Set(bedrooms);
-  //const citySet = new Set(cities);
-  //const bathsSet = new Set(baths)
+  const bedroomsSet = new Set(bedrooms);
+  const citySet = new Set(cities);
+  const bathsSet = new Set(baths)
 
-  //console.log(citySet);
+  console.log(citySet);
 
   const featuredHouses = listingData?.filter((f) => f.featured === "true");
 
@@ -51,7 +51,7 @@ function Homepage() {
       <Banner />
 
       <main className="homepage">
-        {/*<section className="search-parent">
+        <section className="search-parent">
           <div className="search-outer-container">
             <div className="area-button button-flex">
               <h4 style={{ margin: "0px" }}>Area</h4>
@@ -108,14 +108,14 @@ function Homepage() {
           </div>
 
        
-        </section>*/}
+        </section>
 
         <section className="featured-listing"  >
           <h1 className="green600">Featured Homes</h1>
 
           <div style={{display: 'flex', flexWrap: 'wrap'}}>
             {loading
-              ? Array.from({ length: 6 }).map((_, index) => (
+              ? Array.from({ length: 5 }).map((_, index) => (
                   <div className="prop-container" key={index}>
                     <div className="prop-container-img skeleton"></div>
 
