@@ -51,7 +51,7 @@ function Homepage() {
       <Banner />
 
       <main className="homepage">
-        <section className="search-parent">
+        {/*<section className="search-parent">
           <div className="search-outer-container">
             <div className="area-button button-flex">
               <h4 style={{ margin: "0px" }}>Area</h4>
@@ -108,7 +108,7 @@ function Homepage() {
           </div>
 
        
-        </section>
+        </section>*/}
 
         <section className="featured-listing"  >
           <h1 className="green600">Featured Homes</h1>
