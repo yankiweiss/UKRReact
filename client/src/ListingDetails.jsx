@@ -42,6 +42,16 @@ function ListingDetails() {
       .catch((error) => console.error(error));
   }, []);
 
+
+  const formatNumbers = (number) => {
+    const usdFormatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+
+    return usdFormatter.format(number);
+  };
+
   console.log(listing);
 
   return (
@@ -168,33 +178,6 @@ function ListingDetails() {
                   </p>
                 </div>
 
-                {/*<div>
-  <h2 className=" bold-Dark main-header"  style={{margin: '0%'}}>Pricing</h2>
-  <hr className="main-underline" />
-
-  <div className="" style={{display: 'flex' , gap: '5px'}}>
-
-  <h4 style={{margin: '0px'}}>Week:</h4><p>{listing?.pricing.week}</p>
-  
-  </div>
-
-  <div style={{display: 'flex' , gap: '5px'}}>
-    <h4 style={{margin: '0px'}}>weekend:</h4><p>{listing?.pricing.weekend}</p>
-  </div>
-
-  <div style={{display: 'flex' , gap: '5px'}}>
-    <h4 style={{margin: '0px'}}>First Half:</h4><p>{listing?.pricing.week}</p>
-  </div>
-
-  <div style={{display: 'flex' , gap: '5px'}}>
-    <h4 style={{margin: '0px'}}>Second Half:</h4><p>{listing?.pricing.week}</p>
-  </div>
-
-  <div style={{display: 'flex' , gap: '5px'}}>
-    <h4 style={{margin: '0px'}}>Full Summer:</h4><p>{listing?.pricing.week}</p>
-  </div>
-
-</div>*/}
 
                 <div
                   className="contact-quick-details"
@@ -228,11 +211,11 @@ function ListingDetails() {
                   <>
                     <p
                       style={{ textAlign: "center" }}
-                    >{`Weekend - $${listing?.pricing.weekend}`}</p>
+                    >{`Weekend - ${formatNumbers(listing?.pricing.weekend)}`}</p>
 
                     <p
                       style={{ textAlign: "center" }}
-                    >{`Week - $${listing?.pricing.week}`}</p>
+                    >{`Week - ${formatNumbers(listing?.pricing.week)}`}</p>
 
                     {listing?.pricing.firstHalf != null && (
                       <h2
