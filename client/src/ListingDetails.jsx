@@ -148,72 +148,144 @@ function ListingDetails() {
               </div>
             </div>
 
-            <section className="description-contact-flex card">
-              <div className="description" >
-                <h2 className=" bold-Dark main-header"  style={{margin: '0%'}}>Description</h2>
-
-                <hr className="main-underline" />
-
-                <p style={{ fontStyle: 'italic', width: "100%" }}>
-                  {listing?.description}
-                </p>
-              </div>
-
-          
-                <div
-                  className="contact-quick-details" style={{marginTop: '2%'}}
-
-                >
-                  <h2 className=" bold-Dark main-header" style={{margin: '0%'}}>Contact</h2>
+            <div
+              className="card"
+              style={{ marginTop: "15px", display: "flex" }}
+            >
+              <section className="description-contact-flex">
+                <div className="description">
+                  <h2
+                    className=" bold-Dark main-header"
+                    style={{ margin: "0%" }}
+                  >
+                    Description
+                  </h2>
 
                   <hr className="main-underline" />
 
-                  <h3
-                  
-                  >{`Phone: ${listing?.phone}`}</h3>
-
-                  <h3
-                    
-                  >{`Email: ${listing?.email}`}</h3>
+                  <p style={{ fontStyle: "italic", width: "100%" }}>
+                    {listing?.description}
+                  </p>
                 </div>
-          
 
+                {/*<div>
+  <h2 className=" bold-Dark main-header"  style={{margin: '0%'}}>Pricing</h2>
+  <hr className="main-underline" />
+
+  <div className="" style={{display: 'flex' , gap: '5px'}}>
+
+  <h4 style={{margin: '0px'}}>Week:</h4><p>{listing?.pricing.week}</p>
+  
+  </div>
+
+  <div style={{display: 'flex' , gap: '5px'}}>
+    <h4 style={{margin: '0px'}}>weekend:</h4><p>{listing?.pricing.weekend}</p>
+  </div>
+
+  <div style={{display: 'flex' , gap: '5px'}}>
+    <h4 style={{margin: '0px'}}>First Half:</h4><p>{listing?.pricing.week}</p>
+  </div>
+
+  <div style={{display: 'flex' , gap: '5px'}}>
+    <h4 style={{margin: '0px'}}>Second Half:</h4><p>{listing?.pricing.week}</p>
+  </div>
+
+  <div style={{display: 'flex' , gap: '5px'}}>
+    <h4 style={{margin: '0px'}}>Full Summer:</h4><p>{listing?.pricing.week}</p>
+  </div>
+
+</div>*/}
+
+                <div
+                  className="contact-quick-details"
+                  style={{ marginTop: "2%" }}
+                >
+                  <h2
+                    className=" bold-Dark main-header"
+                    style={{ margin: "0%" }}
+                  >
+                    Contact
+                  </h2>
+
+                  <hr className="main-underline" />
+
+                  <h3>{`Phone: ${listing?.phone}`}</h3>
+
+                  <h3>{`Email: ${listing?.email}`}</h3>
+                </div>
               </section>
 
-              <div className="basic-info-container card">
-                <h2 className="main-header" style={{margin: '0%'}}>Basic Info</h2>
-                <hr className="main-underline"/>
+              <div className="price_container">
+                <h2 style={{ textAlign: "center",  marginBottom: '0px' }}>Pricing:</h2>
 
-                <ul>
-                  <li>
-                    {" "}
-                    <h3 className="bold-Dark">
-                      Property Type: {listing?.propertyType}
-                    </h3>
-                  </li>
+                
 
-                  <li>
-                    <div className="basic-info">
-                      <h3 className="bold-Dark">Baths: {listing?.baths}</h3>
-                    </div>
-                  </li>
+                <hr className="main-underline" style={{ width: "85%" }} />
 
-                  <li>
-                     <div className="basic-info">
-                  <h3 className="bold-Dark">Bedrooms: {listing?.bedrooms}</h3>
-                 
-                </div>
-                  </li>
-                </ul>
+                {listing?.callForPricing === true ? (
+                  <p style={{ textAlign: "center" }}>Please call for Pricing</p>
+                ) : (
+                  <>
+                    <p
+                      style={{ textAlign: "center" }}
+                    >{`Weekend - $${listing?.pricing.weekend}`}</p>
+
+                    <p
+                      style={{ textAlign: "center" }}
+                    >{`Week - $${listing?.pricing.week}`}</p>
+
+                    {listing?.pricing.firstHalf != null && (
+                      <h2
+                        style={{ textAlign: "center" }}
+                      >{`First Half - $10000`}</h2>
+                    )}
+
+                    {listing?.pricing.secondHalf != null && (
+                      <h2
+                        style={{ textAlign: "center" }}
+                      >{`Second Half - $10000`}</h2>
+                    )}
+
+                    {listing?.pricing.fullSummer != null && (
+                      <h2
+                        style={{ textAlign: "center" }}
+                      >{`Full Summer - $10000`}</h2>
+                    )}
+                  </>
+                )}
               </div>
-            
-            
+            </div>
+
+            <div className="basic-info-container card">
+              <h2 className="main-header" style={{ margin: "0%" }}>
+                Basic Info
+              </h2>
+              <hr className="main-underline" />
+
+              <ul>
+                <li>
+                  {" "}
+                  <h3 className="bold-Dark">
+                    Property Type: {listing?.propertyType}
+                  </h3>
+                </li>
+
+                <li>
+                  <div className="basic-info">
+                    <h3 className="bold-Dark">Baths: {listing?.baths}</h3>
+                  </div>
+                </li>
+
+                <li>
+                  <div className="basic-info">
+                    <h3 className="bold-Dark">Bedrooms: {listing?.bedrooms}</h3>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </>
         )}
       </div>
-
-    
-       
     </>
   );
 }

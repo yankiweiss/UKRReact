@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.css";
-import { IoIosSearch } from "react-icons/io";
+//import { IoIosSearch } from "react-icons/io";
 
 import { Link } from "react-router-dom";
 import Banner from "./Banner";
@@ -8,8 +8,10 @@ import Banner from "./Banner";
 function Homepage() {
   const [listingData, setListingData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [select, setSelect] = useState();
-  const [area, setArea] = useState("");
+  //const [select, setSelect] = useState();
+  //const [area, setArea] = useState("");
+  //const [beds, setBeds] = useState('');
+  //const [numOfBaths, setnumOfBaths] = useState('')
 
   useEffect(() => {
     fetch("https://www.jwprosoftwaresolutions.com/listing")
@@ -30,19 +32,40 @@ function Homepage() {
 
   const allListings = Object.values(groupByArea).flat();
 
-  const cities = listingData?.map((listing) => listing.city);
-  const bedrooms = listingData?.map((listing) => listing.bedrooms).sort();
-  const baths = listingData.map((listing) => listing.baths).sort()
+  //const cities = listingData?.map((listing) => listing.city);
+  //const bedrooms = listingData?.map((listing) => listing.bedrooms).sort();
+  //const baths = listingData.map((listing) => listing.baths).sort()
 
-  const bedroomsSet = new Set(bedrooms);
-  const citySet = new Set(cities);
-  const bathsSet = new Set(baths)
+  //const bedroomsSet = new Set(bedrooms);
+  //const citySet = new Set(cities);
+  //const bathsSet = new Set(baths)
 
-  console.log(citySet);
+  //console.log(citySet);
 
   const featuredHouses = listingData?.filter((f) => f.featured === "true");
 
-  console.log(featuredHouses);
+ 
+
+ 
+
+// const handleSearch = () => {
+//
+// const filteredData = listingData?.filter((listing) => {
+//  
+//  const cityMatch = !area || listing.city === area;
+//  const bedsMatch = !beds ||  listing.bedrooms === beds;
+//  const bathsMatch= !baths || listing.baths === numOfBaths;
+//
+//return cityMatch && bedsMatch && bathsMatch
+//
+//});
+//
+//console.log(filteredData)
+// }
+
+
+
+
 
   return (
     <>
@@ -82,9 +105,13 @@ function Homepage() {
             <div className="area-button button-flex">
               <h4 style={{ margin: "0px" }}>Bedrooms</h4>
 
-              <select>
+              <select value={beds} onChange={(e) => setBeds(e.target.value)}>
+                <option value={''}>any</option>
                 {[...bedroomsSet].map((beds) => (
-                  <option>{beds}</option>
+                  <>
+                  
+                  <option value={beds}>{beds}</option>
+                  </>
                 ))}
               </select>
             </div>
@@ -92,9 +119,10 @@ function Homepage() {
             <div className="area-button button-flex">
               <h4 style={{ margin: "0px" }}>Baths</h4>
 
-              <select>
+              <select value={numOfBaths} onChange={(e) => setnumOfBaths(e.target.value)}>
+                <option value={''}>any</option>
                 {[...bathsSet].map((bath) => (
-                  <option>{bath}</option>
+                  <option value={bath}>{bath}</option>
                 ))}
              
               </select>
@@ -102,7 +130,7 @@ function Homepage() {
 
             <div className="search-icon-container">
 
-          <IoIosSearch fontSize={'45px'}/>
+          <IoIosSearch fontSize={'45px'} onClick={handleSearch}/>
           </div>
 
           </div>

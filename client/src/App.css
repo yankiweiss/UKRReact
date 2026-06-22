@@ -47,13 +47,7 @@ button {
 .select-city:hover{
 background-color: #379e4f;
 }
-.search-parent{
-  width: 90%;
-  height: 100px;
 
-  
-  
-}
 .search-outer-container{
   width: 50%;
   height: 75%;
@@ -62,6 +56,8 @@ background-color: #379e4f;
   border: 2px solid #174622;
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+ 
 }
 .button-flex{
   display: flex;
@@ -237,14 +233,20 @@ border-radius: 8px;
   text-align: start;
 
 }
+.price_container{
+  border: #2ad1518e solid 3px;
+  width: 25%;
+  border-radius: 8px;
+  height: 100%;
+  padding: 1%;
+}
 
 .description-contact-flex {
   margin-top: 2%;
   display: flex;
   flex-direction: column;
-
+  width: 80%;
   margin-bottom: 2%;
-
   gap: 10%;
 }
 .beds-baths {
