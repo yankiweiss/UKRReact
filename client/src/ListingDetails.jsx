@@ -105,6 +105,7 @@ function ListingDetails() {
                 <img
                   src={listing?.uploadedFiles?.[currentImage]}
                   ref={mainImage}
+                  loading="lazy"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -128,7 +129,8 @@ function ListingDetails() {
               <div className="pic-column">
                 <img
                   src={listing?.uploadedFiles?.[1]}
-                  style={{ width: "100%", height: "50%" }}
+                  loading="lazy"
+                  style={{ width: "100%", height: "50%", objectFit: 'cover' }}
                 ></img>
 
                 <img
@@ -218,15 +220,15 @@ function ListingDetails() {
                     >{`Week - ${formatNumbers(listing?.pricing.week)}`}</p>
 
                     {listing?.pricing.firstHalf != null && (
-                      <h2
+                      <p
                         style={{ textAlign: "center" }}
-                      >{`First Half - $10000`}</h2>
+                      >{`First Half - ${formatNumbers(listing?.pricing.firstHalf)}`}</p>
                     )}
 
                     {listing?.pricing.secondHalf != null && (
-                      <h2
+                      <p
                         style={{ textAlign: "center" }}
-                      >{`Second Half - $10000`}</h2>
+                      >{`Second Half - ${formatNumbers(listing?.pricing.secondHalf)}`}</p>
                     )}
 
                     {listing?.pricing.fullSummer != null && (
