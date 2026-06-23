@@ -160,6 +160,14 @@ function ListingDetails() {
               </div>
             </div>
 
+              {listing?.specialNotes != null && (
+                      <h2
+                        style={{textAlign: 'center', color: 'red', fontStyle: 'italic'}}
+                      >{listing?.specialNotes}</h2>
+                    )}
+
+           
+
             <div
               className="card"
               style={{ marginTop: "15px", display: "flex" }}
